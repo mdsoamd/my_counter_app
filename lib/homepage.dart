@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -8,6 +9,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+@override
+  void initState() {
+    super.initState();
+
+    /// whenever your initialization is completed, remove the splash screen:
+    Future.delayed(Duration(seconds: 5)).then((value) => {
+      FlutterNativeSplash.remove()
+    });
+  }
+
+
+  
   TextEditingController inputvalue = TextEditingController();
   TextEditingController inputvalue1 = TextEditingController();
   int count = 0;
